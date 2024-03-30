@@ -2,13 +2,13 @@ const apiKey = "3f4e3e3e67ac403d9fc171608243003";
 //const baseURL = "https://api.weatherapi.com.v1${city}&appid=${apiKey}";
 const searchButton = document.getElementById("search-button");
 const searchbar = document.getElementById("search-bar");
-const locationDiv = document.querySelector(".location");
-const iconDiv = document.querySelector(".icon");
-const descriptionDiv = document.querySelector(".description");
-const humidityDiv = document.querySelector(".humidity");
-const windDiv = document.querySelector(".wind");
-const tempDiv = document.querySelector(".temp");
-const dateDIv = document.querySelector(".date");
+const location = document.querySelector(".location");
+const icon = document.querySelector(".icon");
+const description = document.querySelector(".description");
+const humidity = document.querySelector(".humidity");
+const wind = document.querySelector(".wind");
+const temp = document.querySelector(".temp");
+const date = document.querySelector(".date");
 
 searchButton.addEventListener("click", (event) => {
     event.preventDefault();
