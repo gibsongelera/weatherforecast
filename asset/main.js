@@ -1,15 +1,15 @@
 const apiKey = "91a018c1fe1a49e9b46160245231103";
 //const baseURL = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=91a018c1fe1a49e9b46160245231103";
 // var weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-const searchButton = document.querySelector("search-button");
-const searchbar = document.querySelector("search-bar");
-const location = document.querySelector(".location");
-const icon = document.querySelector(".icon");
-const description = document.querySelector(".description");
-const humidity = document.querySelector(".humidity");
-const wind = document.querySelector(".wind");
-const temp = document.querySelector(".temp");
-const date = document.querySelector(".date");
+const searchButton = document.getElementById("search-button");
+const searchbar = document.getElementById("search-bar");
+const locationDiv = document.querySelector(".location");
+const iconDiv = document.querySelector(".icon");
+const descriptionDiv = document.querySelector(".description");
+const humidityDiv = document.querySelector(".humidity");
+const windDiv = document.querySelector(".wind");
+const tempDiv = document.querySelector(".temp");
+const dateDiv = document.querySelector(".date");
 
 searchButton.addEventListener("click", (event) => {
     event.preventDefault();
