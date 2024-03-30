@@ -1,5 +1,4 @@
 const apiKey = "3f4e3e3e67ac403d9fc171608243003";
-//const baseURL = "https://api.weatherapi.com.v1${city}&appid=${apiKey}";
 const searchButton = document.getElementById("search-button");
 const searchbar = document.getElementById("search-bar");
 const locationDiv = document.querySelector(".location");
@@ -8,7 +7,7 @@ const descriptionDiv = document.querySelector(".description");
 const humidityDiv = document.querySelector(".humidity");
 const windDiv = document.querySelector(".wind");
 const tempDiv = document.querySelector(".temp");
-const dateDIv = document.querySelector(".date");
+const dateDiv = document.querySelector(".date");
 
 searchButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -19,25 +18,27 @@ searchButton.addEventListener("click", (event) => {
         getWeather(city);
     }
 });
+
 async function getWeather(city) {
-    const baseURL = `https://api.weatherapi.com.v1${city}&appid=${apiKey}`;
+    const baseURL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
     const response = await fetch(baseURL);
     const data = await response.json();
-    console.log(data);
     displayWeather(data);
 }
+
 function displayWeather(data) {
     locationDiv.textContent = `${data.location.name}, ${data.location.country}`;
-    iconDiv.src = `http://weatherapi.com/img/${data.current.condition.icon}.png`;
+    iconDiv.src = `http:${data.current.condition.icon}`;
     descriptionDiv.textContent = data.current.condition.text;
     humidityDiv.textContent = `Humidity: ${data.current.humidity}%`;
     windDiv.textContent = `Wind: ${data.current.wind_kph} kph`;
     tempDiv.textContent = `${Math.round(data.current.temp_c)}°C`;
     dateDiv.textContent = new Date().toLocaleDateString();
 }
+
 async function getForecast(city) {
     try {
-        const baseURL = `https://api.weatherapi.com.v1${city}&appid=${apiKey}`;
+        const baseURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}`;
         const response = await fetch(baseURL);
         const data = await response.json();
         console.log(data);
@@ -46,32 +47,7 @@ async function getForecast(city) {
         console.log(error);
     }
 }
-function displayWeather(data) {
-    locationDiv.textContent = `${data.location.name}, ${data.location.country}`;
-    iconDiv.src = `http://weatherapi.com/img/${data.current.condition.icon}.png`;
-    descriptionDiv.textContent = data.current.condition.text;
-    humidityDiv.textContent = `Humidity: ${data.current.humidity}%`;
-    windDiv.textContent = `Wind: ${data.current.wind_kph} kph`;
-    tempDiv.textContent = `${Math.round(data.current.temp_c)}°C`;
-    dateDiv.textContent = new Date().toLocaleDateString();
-}
-async function getForecast(city) {
-    try {
-        const baseURL = `https://api.weatherapi.com.v1${city}&appid=${apiKey}`;
-        const response = await fetch(baseURL);
-        const data = await response.json();
-        console.log(data);
-        displayForecast(data);
-    } catch (error) {
-        console.log(error);
-    }
-}
-function displayWeather(data) {
-    location.textContent = `${data.location.name}, ${data.location.country}`;
-    icon.src = `http://weatherapi.com/img/${data.current.condition.icon}.png`;
-    description.textContent = data.current.condition.text;
-    humidity.textContent = `Humidity: ${data.current.humidity}%`;
-    wind.textContent = `Wind: ${data.current.wind_kph} kph`;
-    temp.textContent = `${Math.round(data.current.temp_c)}°C`;
-    date.textContent = new Date().toLocaleDateString();
+
+function displayForecast(data) { 
+    // Add code here to display forecast data as needed
 }
