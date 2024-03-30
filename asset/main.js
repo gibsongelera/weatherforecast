@@ -28,7 +28,7 @@ async function getWeather(city) {
 
 function displayWeather(data) {
     locationDiv.textContent = `${data.location.name}, ${data.location.country}`;
-    iconDiv.src = `http:${data.current.condition.icon}`;
+    iconDiv.src = `http://openweathermap.org/img/wn/${data.current.condition.icon}`;
     descriptionDiv.textContent = data.current.condition.text;
     humidityDiv.textContent = `Humidity: ${data.current.humidity}%`;
     windDiv.textContent = `Wind: ${data.current.wind_kph} kph`;
